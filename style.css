@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  background-color: black;
+  color: #00ff00;
+  text-align: center;
+}
+
+#start-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 2s ease-in;
+}
+
+.retro-title {
+  font-size: 48px;
+  text-shadow: 2px 2px #0f0;
+}
+
+.retro-text {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.blink {
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+#game-container {
+  padding: 10px;
+}
+
+#game {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(10, 30px);
+  gap: 2px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+}
+
+.wall {
+  background-color: #0033cc;
+}
+
+.pacman {
+  background-color: yellow;
+  border-radius: 50%;
+}
+
+.pellet {
+  background-color: white;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: auto;
+}
+
+#controls {
+  margin-top: 20px;
+}
+
+#controls button {
+  font-size: 24px;
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #222;
+  color: #0f0;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pac-Man - Xalapa 2.0</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Pantalla de inicio -->
+  <div id="start-screen">
+    <h1 class="retro-title">Xalapa 2.0</h1>
+    <p class="blink retro-text">Toca la pantalla para comenzar</p>
+  </div>
+
+  <!-- Juego -->
+  <div id="game-container" style="display: none;">
+    <div id="game"></div>
+    <!-- Controles táctiles -->
+    <div id="controls">
+      <button onclick="move('ArrowUp')">⬆️</button>
+      <div>
+        <button onclick="move('ArrowLeft')">⬅️</button>
+        <button onclick="move('ArrowDown')">⬇️</button>
+        <button onclick="move('ArrowRight')">➡️</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
