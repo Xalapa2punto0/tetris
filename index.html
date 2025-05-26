@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>Tetris Móvil</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -11,10 +11,12 @@
     <div class="game">
       <canvas id="tetris" width="240" height="400"></canvas>
       <div class="mobile-controls">
-        <button id="left">◀️</button>
-        <button id="rotate">🔄</button>
-        <button id="right">▶️</button>
-        <button id="down">⬇️</button>
+        <div class="dpad">
+          <button id="left" class="control">◀</button>
+          <button id="right" class="control">▶</button>
+          <button id="down" class="control">⬇</button>
+        </div>
+        <button id="rotate" class="control rotate-btn">🔄</button>
       </div>
     </div>
     <div class="info">

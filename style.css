@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -11,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
 }
 
 .container {
@@ -23,7 +25,6 @@ canvas {
   background: #111;
   border: 2px solid #555;
   display: block;
-  margin: 0 auto;
 }
 
 .info {
@@ -33,11 +34,13 @@ canvas {
 }
 
 button {
-  padding: 10px;
   background-color: #333;
   border: 1px solid #888;
   color: #fff;
   cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+  touch-action: manipulation;
 }
 
 button:hover {
@@ -47,18 +50,28 @@ button:hover {
 .mobile-controls {
   display: none;
   margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
-.mobile-controls button {
-  font-size: 20px;
-  width: 50px;
-  height: 50px;
+.dpad {
+  display: flex;
+  gap: 10px;
 }
 
-/* Estilo para pantallas pequeñas */
+.control {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  border-radius: 10px;
+}
+
+.rotate-btn {
+  width: 130px;
+}
+
+/* Para móviles */
 @media (max-width: 768px) {
   body {
     flex-direction: column;
