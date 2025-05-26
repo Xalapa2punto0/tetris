@@ -18,7 +18,7 @@ function arenaSweep() {
     rowCount *= 2;
     if (player.score >= player.level * 100) {
       player.level++;
-      dropInterval *= 0.9; // velocidad aumenta
+      dropInterval *= 0.9;
     }
   }
 }
@@ -96,19 +96,34 @@ function drawMatrix(matrix, offset) {
     row.forEach((value, x) => {
       if (value !== 0) {
         context.fillStyle = colors[value];
-        context.fillRect(x + offset.x,
-                         y + offset.y,
-                         1, 1);
+        context.fillRect(x + offset.x, y + offset.y, 1, 1);
       }
     });
   });
+}
+
+function drawGrid() {
+  context.strokeStyle = '#333';
+  for (let x = 0; x < canvas.width / 20; x++) {
+    context.beginPath();
+    context.moveTo(x, 0);
+    context.lineTo(x, canvas.height / 20);
+    context.stroke();
+  }
+  for (let y = 0; y < canvas.height / 20; y++) {
+    context.beginPath();
+    context.moveTo(0, y);
+    context.lineTo(canvas.width / 20, y);
+    context.stroke();
+  }
 }
 
 function draw() {
   context.fillStyle = '#000';
   context.fillRect(0, 0, canvas.width, canvas.height);
 
-  drawMatrix(arena, {x:0, y:0});
+  drawGrid();
+  drawMatrix(arena, {x: 0, y: 0});
   drawMatrix(player.matrix, player.pos);
 }
 
@@ -143,7 +158,7 @@ function playerMove(dir) {
 
 function playerReset() {
   const pieces = 'TJLOSZI';
-  player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
+  player.matrix = createPiece(pieces[Math.floor(Math.random() * pieces.length)]);
   player.pos.y = 0;
   player.pos.x = ((arena[0].length / 2) | 0) -
                  ((player.matrix[0].length / 2) | 0);
@@ -186,7 +201,6 @@ function rotate(matrix, dir) {
 
 let dropCounter = 0;
 let dropInterval = 1000;
-
 let lastTime = 0;
 
 function update(time = 0) {
@@ -247,7 +261,7 @@ playerReset();
 updateScore();
 update();
 
-// 📱 Controles móviles: soporte táctil con repetición
+// 📱 Controles móviles con repetición
 function holdAction(callback) {
   let interval;
   return {
@@ -274,7 +288,7 @@ document.getElementById("down").addEventListener("touchend", downHold.stop);
 
 document.getElementById("rotate").addEventListener("touchstart", () => playerRotate(1));
 
-// 🚫 Prevenir zoom accidental en botones
+// 🚫 Prevenir zoom táctil accidental
 ['left', 'right', 'down', 'rotate'].forEach(id => {
   const btn = document.getElementById(id);
   btn.addEventListener('touchstart', e => e.preventDefault(), { passive: false });

@@ -7,25 +7,26 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="score-info">
+    <p>Puntaje: <span id="score">0</span></p>
+    <p>Nivel: <span id="level">1</span></p>
+  </div>
+
   <div class="container">
-    <div class="game">
-      <canvas id="tetris" width="240" height="400"></canvas>
-      <div class="mobile-controls">
-        <div class="dpad">
-          <button id="left" class="control">◀</button>
-          <button id="right" class="control">▶</button>
-          <button id="down" class="control">⬇</button>
-        </div>
-        <button id="rotate" class="control rotate-btn">🔄</button>
+    <canvas id="tetris" width="240" height="400"></canvas>
+    
+    <div class="mobile-controls">
+      <div class="dpad">
+        <button id="left" class="control">◀</button>
+        <button id="right" class="control">▶</button>
+        <button id="down" class="control">⬇</button>
       </div>
-    </div>
-    <div class="info">
-      <h1>TETRIS</h1>
-      <p>Puntaje: <span id="score">0</span></p>
-      <p>Nivel: <span id="level">1</span></p>
-      <button id="restart">Reiniciar</button>
+      <button id="rotate" class="control rotate-btn">🔄</button>
     </div>
   </div>
+
+  <button id="restart">Reiniciar</button>
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -9,16 +9,21 @@ body {
   color: #fff;
   font-family: monospace;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
   overflow: hidden;
 }
 
-.container {
+.score-info {
   display: flex;
-  flex-direction: row;
-  gap: 20px;
+  justify-content: space-between;
+  width: 240px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.container {
+  position: relative;
 }
 
 canvas {
@@ -27,26 +32,7 @@ canvas {
   display: block;
 }
 
-.info {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-button {
-  background-color: #333;
-  border: 1px solid #888;
-  color: #fff;
-  cursor: pointer;
-  font-size: 20px;
-  user-select: none;
-  touch-action: manipulation;
-}
-
-button:hover {
-  background-color: #555;
-}
-
+/* Controles móviles */
 .mobile-controls {
   display: none;
   margin-top: 10px;
@@ -65,31 +51,42 @@ button:hover {
   height: 60px;
   font-size: 24px;
   border-radius: 10px;
+  background-color: #333;
+  border: 1px solid #888;
+  color: white;
+  touch-action: manipulation;
+  user-select: none;
 }
 
 .rotate-btn {
   width: 130px;
 }
 
-/* Para móviles */
+#restart {
+  margin-top: 10px;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #444;
+  color: white;
+  border: 1px solid #999;
+  border-radius: 8px;
+  touch-action: manipulation;
+}
+
+/* Móvil */
 @media (max-width: 768px) {
-  body {
-    flex-direction: column;
-    height: auto;
-    padding: 10px;
+  .score-info {
+    width: 100%;
+    max-width: 240px;
+    padding: 0 10px;
   }
 
-  .container {
-    flex-direction: column;
-    align-items: center;
+  .mobile-controls {
+    display: flex;
   }
 
   canvas {
     width: 100%;
     height: auto;
-  }
-
-  .mobile-controls {
-    display: flex;
   }
 }
