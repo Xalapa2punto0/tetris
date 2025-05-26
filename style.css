@@ -1,86 +1,82 @@
-body {
-  margin: 0;
-  font-family: 'Courier New', monospace;
-  background-color: black;
-  color: #00ff00;
-  text-align: center;
-}
-
-#start-screen {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  animation: fadeIn 2s ease-in;
-}
-
-.retro-title {
-  font-size: 48px;
-  text-shadow: 2px 2px #0f0;
-}
-
-.retro-text {
-  font-size: 20px;
-  margin-top: 20px;
-}
-
-.blink {
-  animation: blink 1s steps(2, start) infinite;
-}
-
-@keyframes blink {
-  to {
-    visibility: hidden;
-  }
-}
-
-#game-container {
-  padding: 10px;
-}
-
-#game {
-  display: grid;
-  grid-template-columns: repeat(10, 30px);
-  grid-template-rows: repeat(10, 30px);
-  gap: 2px;
-  margin: 0 auto;
-  margin-top: 20px;
-}
-
-.cell {
-  width: 30px;
-  height: 30px;
+* {
   box-sizing: border-box;
 }
 
-.wall {
-  background-color: #0033cc;
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.pacman {
-  background-color: yellow;
-  border-radius: 50%;
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
-.pellet {
-  background-color: white;
-  border-radius: 50%;
-  width: 10px;
-  height: 10px;
-  margin: auto;
+canvas {
+  background: #111;
+  border: 2px solid #555;
+  display: block;
+  margin: 0 auto;
 }
 
-#controls {
-  margin-top: 20px;
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-#controls button {
-  font-size: 24px;
-  margin: 5px;
+button {
   padding: 10px;
-  border: none;
-  border-radius: 8px;
-  background-color: #222;
-  color: #0f0;
+  background-color: #333;
+  border: 1px solid #888;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.mobile-controls {
+  display: none;
+  margin-top: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mobile-controls button {
+  font-size: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+/* Estilo para pantallas pequeñas */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  canvas {
+    width: 100%;
+    height: auto;
+  }
+
+  .mobile-controls {
+    display: flex;
+  }
 }
