@@ -217,12 +217,35 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(update);
   }
 
+  // Teclado físico
   document.addEventListener('keydown', event => {
     if (event.repeat) return;
     if (event.key === 'ArrowLeft') playerMove(-1);
     else if (event.key === 'ArrowRight') playerMove(1);
     else if (event.key === 'ArrowDown') playerDrop();
     else if (event.key === 'ArrowUp') playerRotate(1);
+  });
+
+  // Controles móviles con repetición por mantener presionado
+  const buttonMap = {
+    left: () => playerMove(-1),
+    right: () => playerMove(1),
+    down: () => playerDrop(),
+    rotate: () => playerRotate(1)
+  };
+
+  Object.keys(buttonMap).forEach(id => {
+    const btn = document.getElementById(id);
+    let interval;
+
+    btn.addEventListener('touchstart', e => {
+      e.preventDefault();
+      buttonMap[id]();
+      interval = setInterval(buttonMap[id], 100);
+    });
+
+    btn.addEventListener('touchend', () => clearInterval(interval));
+    btn.addEventListener('touchcancel', () => clearInterval(interval));
   });
 
   playerReset();
