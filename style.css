@@ -1,92 +1,75 @@
 * {
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  background: #000;
-  color: #fff;
+  background: #111;
+  color: white;
   font-family: monospace;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  overflow: hidden;
+  height: 100vh;
 }
 
-.score-info {
+#game-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#tetris {
+  background: #000;
+  border: 2px solid #555;
+}
+
+#info {
   display: flex;
   justify-content: space-between;
-  width: 240px;
-  margin-top: 10px;
-  font-size: 16px;
-}
-
-.container {
-  position: relative;
-}
-
-canvas {
-  background: #111;
-  border: 2px solid #555;
-  display: block;
-}
-
-/* Controles móviles */
-.mobile-controls {
-  display: none;
-  margin-top: 10px;
-  flex-direction: column;
+  width: 100%;
+  padding: 10px;
   align-items: center;
-  gap: 10px;
 }
 
-.dpad {
+#next-container {
+  text-align: center;
+}
+
+#next {
+  background: #000;
+  border: 2px solid #555;
+  margin-top: 4px;
+}
+
+#score {
+  font-size: 1.5rem;
+  padding: 5px 10px;
+}
+
+#mobile-controls {
   display: flex;
   gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.control {
-  width: 60px;
-  height: 60px;
-  font-size: 24px;
-  border-radius: 10px;
-  background-color: #333;
-  border: 1px solid #888;
+#mobile-controls button {
+  background: #222;
   color: white;
-  touch-action: manipulation;
-  user-select: none;
-}
-
-.rotate-btn {
-  width: 130px;
-}
-
-#restart {
-  margin-top: 10px;
-  font-size: 18px;
-  padding: 10px 20px;
-  background-color: #444;
-  color: white;
-  border: 1px solid #999;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  border: 2px solid #555;
   border-radius: 8px;
+  width: 60px;
   touch-action: manipulation;
 }
 
-/* Móvil */
-@media (max-width: 768px) {
-  .score-info {
-    width: 100%;
-    max-width: 240px;
-    padding: 0 10px;
-  }
-
-  .mobile-controls {
-    display: flex;
-  }
-
-  canvas {
-    width: 100%;
-    height: auto;
+@media (min-width: 768px) {
+  #mobile-controls {
+    display: none;
   }
 }

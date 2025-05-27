@@ -3,29 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>Tetris Móvil</title>
+  <title>Tetris Avanzado</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="score-info">
-    <p>Puntaje: <span id="score">0</span></p>
-    <p>Nivel: <span id="level">1</span></p>
-  </div>
-
-  <div class="container">
-    <canvas id="tetris" width="240" height="400"></canvas>
-    
-    <div class="mobile-controls">
-      <div class="dpad">
-        <button id="left" class="control">◀</button>
-        <button id="right" class="control">▶</button>
-        <button id="down" class="control">⬇</button>
+  <div id="game-container">
+    <div id="info">
+      <div id="next-container">
+        <div>SIGUIENTE</div>
+        <canvas id="next" width="80" height="80"></canvas>
       </div>
-      <button id="rotate" class="control rotate-btn">🔄</button>
+      <div id="score">0</div>
+    </div>
+    <canvas id="tetris" width="240" height="400"></canvas>
+
+    <div id="mobile-controls">
+      <button id="left">⟵</button>
+      <button id="rotate">⟳</button>
+      <button id="right">⟶</button>
+      <button id="down">⟱</button>
     </div>
   </div>
-
-  <button id="restart">Reiniciar</button>
 
   <script src="script.js"></script>
 </body>
